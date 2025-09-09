@@ -1,0 +1,104 @@
+#heading{
+   margin-left: 500px;
+   font-family: sans-serif;
+   color: rgb(14, 105, 141);
+}
+form{
+    width: 20%;
+    height: 2000px;
+    border: 2px solid rgb(25, 95, 175);
+    margin-left: 200px;
+}
+
+div{
+
+    display: flex;
+    justify-content: space-around;
+}
+
+form{
+    height: 550px;
+    margin: auto;
+    margin-top: 30px;
+    width: 50%;
+     box-shadow: rgba(18, 94, 180, 0.25) 0px 2px 5px -1px, rgba(17, 103, 184, 0.3) 0px 1px 3px -1px;
+     padding: 30px;
+
+}
+
+label{
+    font-size: 20px;
+
+}
+
+table{
+    font-family: Arial, Helvetica, sans-serif;
+  border: 3px;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+
+}
+
+table th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+table tr:nth-child(even){
+    background-color: rgb(38, 131, 173);
+
+}
+
+table tr:hover{
+    background-color: #ddd;
+}
+
+table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1a6fbe;
+    color: white;
+    text-align: center;
+}
+
+table th:hover{
+    background-color: rgb(59, 98, 170);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+input[type= "text"],
+select,
+textarea{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius:20px;
+    cursor:pointer;
+    width: 100%;
+    font-size: 20px;
+
+}
+
+input[type="submit"]:hover{
+    background-color: rgd(20,5.71);
+     font-weight: bold;
+     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+     width: 40%;
+     
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    color: #1786b9;
+    text-decoration:underline;
+}

@@ -1,89 +1,34 @@
-// let promise = new promise(function(res,rej){
-//         if(5==5){
-//             res()
-//         }
-// });
-
-// console.log(promise)
-
-//   let data = false
-
-//   let promise = new Promise(function(res,rej){
-//             // data = true;
-//             if(data){
-//                 res("abcd")
-//             }else{
-//                 rej("bye")
-//             }
-//   })
-
-
-// //   console.log(promise);
-// //   then catch
-
-// promise.then(function(res){
-//     console.log("result is", res);
-    
-// })
-
-// promise.catch(function(err){
-//     console.log(err);
-    
-// })
+let api_key = "0be5cefa77367d7fea0e9652c1cc9677";
+let api ="https://api.openweathermap.org/data/2.5/weather" ;
 
 let input = document.querySelector("input")
-let img = document.querySelector("img")
-let password = 123456;
+let main = document.querySelector("#main")
+
+// ?q=buldhana&appid=10827b982885620c622fe8fb8bdb7147&units=metric
 
 
-function Checkfun(){
-    let x = input.value;
 
-let promise = new Promise(function(res,rej){
-    if(password==x){
-        res("Password Match")
-       }else{
-        rej("wrong ppassword")
-       }
-})
 
-promise.then(function(res){
-      console.log(res);
-    img.src = "https://media.tenor.com/CFhoSD3vWGQAAAAM/ufc.gif"
-    
-})
-  
-.catch(function(err){
-     console.log(err);
-     img.src = "https://media.tenor.com/vLK4Mq3jiKIAAAAM/cat-no.gif"
-    
-})
 
+const getData = async()=>{
+    let cityname = input.value || "buldhana";
+    let res = await fetch(`${api}?q=${cityname}&appid=${api_key}&units=metric`);
+    // console.log(res);                       
+    let data = await res.json()
+  display(data)   
 }
 
+getData()
 
-function Delayfun(){
- setTimeout(Checkfun,2000);   
-
-}
-
-
+ function display({name,main:{temp}}){
+// console.log(data.main.temp)
+// console.log(data.name)
 
 
+ main.innerHTML = `<h1>${name}</h1>
+                   <h1>${temp}</h2>
+                   <iframe 
 
-
-
-
-
-
-
-// /  let promise = new Promise(function(res,rej){
-//                     if(5==4){
-//                         res("Success")
-//                     }else{
-//                         rej("failed")
-//                     }
-//               });
-
-// console
-// .log(promise)
+src="https://maps.google.com/maps?width=600&height=400&hl=en&q=${name}&t=&z=14&ie=UTF8&iwloc=B&output=embed">
+</iframe>`
+ } 

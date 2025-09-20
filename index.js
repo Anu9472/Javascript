@@ -1,34 +1,46 @@
-let api_key = "0be5cefa77367d7fea0e9652c1cc9677";
-let api ="https://api.openweathermap.org/data/2.5/weather" ;
-
+let api = " http://www.omdbapi.com/?i=tt3896198&apikey=60475967";
 let input = document.querySelector("input")
-let main = document.querySelector("#main")
-
-// ?q=buldhana&appid=10827b982885620c622fe8fb8bdb7147&units=metric
-
-
-
-
+let search_box = document.getElementById("search_box");
 
 const getData = async()=>{
-    let cityname = input.value || "buldhana";
-    let res = await fetch(`${api}?q=${cityname}&appid=${api_key}&units=metric`);
-    // console.log(res);                       
+    let x = input.value;
+    let res = await fetch(`${api}&s=${x}`)
     let data = await res.json()
-  display(data)   
+
+
+    // console.log(data.Search);
+    display(data.Search)    
 }
 
-getData()
+function Delay(){
+     setTimeout(getData,1000)
+}
 
- function display({name,main:{temp}}){
-// console.log(data.main.temp)
-// console.log(data.name)
+function display(data){
+    search_box.innerHTML =""
+data.map(({Title,Poster,Year})=>{
+    // console.log(Title,Poster,Year);
+   
+//    search_box.innerHTML = `<div>
+//                           <img src= ${Poster}/>
+//                           <h4>${Title}</h4>
+//                           <h5>${Year}</h5>
+                          
+                          
+//                           </div>` 
 
+let title = document.createElement("h4")
+title.innerText = Title
+let year = document.createElement("h5")
+year.innerText = Year
+let img = document.createElement("img")
+img.src = Poster
+let div = document.createElement("div")
 
- main.innerHTML = `<h1>${name}</h1>
-                   <h1>${temp}</h2>
-                   <iframe 
+div.append(img,title,year)
 
-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=${name}&t=&z=14&ie=UTF8&iwloc=B&output=embed">
-</iframe>`
- } 
+search_box.append(div)
+})
+}
+
+// getData()

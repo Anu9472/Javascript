@@ -1,46 +1,70 @@
-let api = " http://www.omdbapi.com/?i=tt3896198&apikey=60475967";
-let input = document.querySelector("input")
-let search_box = document.getElementById("search_box");
+ 
+//  let api = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyBKghEpKn5GtcQEbVS2sex03w2imtXFT7s";
 
-const getData = async()=>{
-    let x = input.value;
-    let res = await fetch(`${api}&s=${x}`)
-    let data = await res.json()
+//   let container = document.getElementById("container")
+//   let input = document.querySelector("input")
+
+//    const getData = async()=>{
+    
+//       let res = await fetch(`${api}&q=${input.value}`);
+//       let data = await res.json();
+//       let item = data.items
+//      console.log(item);
+//       display(item);
+//   }
+ 
 
 
-    // console.log(data.Search);
-    display(data.Search)    
-}
+//  getData()
+//   const display = (data)=>{
+//    container.innerHTML=""
+//   data.map(({id:{videoId},snippet:{title}})=>{
+//       let name = document.createElement("h2");
+//        name.innerText = title
+//      let video = document.createElement("iframe")
+//      video.src = `https://www.youtube.com/embed/${videoId}`;
+     
+//     let div =  document.createElement("div")
+//     div.append(video,name)
+//      container.append(div)
 
-function Delay(){
-     setTimeout(getData,1000)
-}
+ 
+    
+//  })
+//   }
 
-function display(data){
-    search_box.innerHTML =""
-data.map(({Title,Poster,Year})=>{
-    // console.log(Title,Poster,Year);
-   
-//    search_box.innerHTML = `<div>
-//                           <img src= ${Poster}/>
-//                           <h4>${Title}</h4>
-//                           <h5>${Year}</h5>
-                          
-                          
-//                           </div>` 
 
-let title = document.createElement("h4")
-title.innerText = Title
-let year = document.createElement("h5")
-year.innerText = Year
-let img = document.createElement("img")
-img.src = Poster
-let div = document.createElement("div")
+let api = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyD-zGg0TV5A2QMip5kChktwwCSemed-4fY";
+let main = document.getElementById("main");
+let input = document.getElementById("comman");
+const getData = async () => {
+  let res = await fetch(`${api}&q=${input.value}`);
+  // console.log(res.json());
+  let data = await res.json();
+  // console.log(data.items);
+  console.log(data);
 
-div.append(img,title,year)
-
-search_box.append(div)
-})
-}
+  dispaly(data.items);
+};
 
 // getData()
+
+function deley() {
+  setTimeout(getData, 2000);
+}
+
+const dispaly = (abc) => {
+  main.innerHTML = "";
+  // console.log(abc);
+  abc.map((el) => {
+    //   console.log(el.id.videoId);
+    let iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${el.id.videoId}`;
+    let title = document.createElement("h3");
+    title.innerText = title.value;
+    let div = document.createElement("div");
+
+    main.append(iframe);
+    main.append(div);
+  });
+};

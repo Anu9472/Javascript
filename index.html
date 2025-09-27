@@ -1,14 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+ <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube</title>
+    <title>Document</title> 
 </head>
-<link rel="stylesheet" href="../youtube/style.css">
+  <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px solid;
+        }
+        #container>div{
+            border: 2px solid;
+        }
+        #container>div>iframe{
+            width: 100%;
+        }
+        input{
+            padding: 10px;
+            width: 300px;
+            border-color: gold;
+        }
+        button{
+            border-color: gold;
+            height: 40px;
+        }
+        div{
+            border: 2px solid;
+        }
+        div>img{
+            margin-top: 40px;
+            width: 200px;
+            height: 80px;
+        }
+    </style> 
+
+
+    
 <body>
-    <input id="comman" oninput="delay()" type="text" placeholder="search here">
+
+    <input id="comman" type="text" oninput="delay()" placeholder="search">
      <div id="main"></div>
 </body>
-<script src="../youtube/script.js"></script>
-</html>
+<script src="../youtube_clone/"></script>
+</html> 
+

@@ -1,0 +1,34 @@
+
+        #container{
+       
+            display: flex;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px ;
+        }
+        #container>div{
+            /* border: 2px solid orange; */
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        #container>div>iframe{
+            width: 100%;
+        }
+        input{
+            padding: 10px;
+            width: 300px;
+            /* border-color: gold; */
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        button{
+            border-color: gold;
+            height: 40px;
+        }
+        div{
+            /* border: 2px solid red; */
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        div>img{
+            margin-top: 40px;
+            width: 200px;
+            height: 80px;
+        }
+ 

@@ -1,56 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #search_box{
-            width: 250px;
-            height: 400px;
-            /* border: 2px solid purple; */
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-            margin-top: 10px;
-            overflow: scroll;
-        }
-        #search_box>div{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-            /* border: 2px solid pink; */
-            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-            padding: 5px;
-
-        }
-        #search_box>div>img{
-            width: 50px;
-            height: 50px;
-            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-            padding: 2px;
-
-
-        }
-
-        input{
-            font-size: 25px;
-            font-weight: 200;
-            font-style: italic;
-            width: 240px;
-            height: 40px;
-            margin-top: 10px;
-              box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;      
-        }
-    </style>
+    <title>Youtube</title>
 </head>
+<link rel="stylesheet" href="../youtube/style.css">
 <body>
-    <h1>Debouncing</h1>
-
-    <br><br>
-
-    <input oninput="Delay()" type="text" placeholder="Search Movie...">
-    <div id="search_box"></div>
-
-    
+    <input id="comman" oninput="delay()" type="text" placeholder="search here">
+     <div id="main"></div>
 </body>
-<script src="./index.js"></script>
+<script src="../youtube/script.js"></script>
 </html>

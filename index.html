@@ -1,47 +1,39 @@
- <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
+    <title>Document</title>
+    <style>
+      #main {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      }
+      #main>div{
+      text-align: center;
+      border: 2px solid;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+      }
+      .images {
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+      }
+      select,input{
+      width: 300px;
+      height: 60px;
+     font-size: medium;
+      }
+    </style>
 </head>
-  <style>
-        #container{
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px solid;
-        }
-        #container>div{
-            border: 2px solid;
-        }
-        #container>div>iframe{
-            width: 100%;
-        }
-        input{
-            padding: 10px;
-            width: 300px;
-            border-color: gold;
-        }
-        button{
-            border-color: gold;
-            height: 40px;
-        }
-        div{
-            border: 2px solid;
-        }
-        div>img{
-            margin-top: 40px;
-            width: 200px;
-            height: 80px;
-        }
-    </style> 
-
-
-    
 <body>
-
-    <input id="comman" type="text" oninput="delay()" placeholder="search">
-     <div id="main"></div>
+    <select onchange="filterpr()">
+    <option value="">Filter By Price</option>
+    <option value="lth">Low to High</option>
+    <option value="htl">High to Low</option>
+    </select>
+    <input type="text" placeholder="Search...">
+    <br><br>
+    <div id="main"></div>
 </body>
-<script src="../youtube_clone/"></script>
-</html> 
-
+<script src="index.js"></script>
+</html>

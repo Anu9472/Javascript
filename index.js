@@ -1,70 +1,60 @@
- 
-//  let api = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyBKghEpKn5GtcQEbVS2sex03w2imtXFT7s";
-
-//   let container = document.getElementById("container")
-//   let input = document.querySelector("input")
-
-//    const getData = async()=>{
-    
-//       let res = await fetch(`${api}&q=${input.value}`);
-//       let data = await res.json();
-//       let item = data.items
-//      console.log(item);
-//       display(item);
-//   }
- 
+let main = document.getElementById("main")
+let filprice = document.querySelector("select")
+let input = document.querySelector("input")
 
 
-//  getData()
-//   const display = (data)=>{
-//    container.innerHTML=""
-//   data.map(({id:{videoId},snippet:{title}})=>{
-//       let name = document.createElement("h2");
-//        name.innerText = title
-//      let video = document.createElement("iframe")
-//      video.src = `https://www.youtube.com/embed/${videoId}`;
-     
-//     let div =  document.createElement("div")
-//     div.append(video,name)
-//      container.append(div)
+let api = "https://dummyjson.com/products";
+let realData;
 
- 
-    
-//  })
-//   }
+const getData = async()=>{
+let res = await fetch(api)
+let data = await res.json()
+realData = data.products;
+display(realData)
 
+}
+getData()
 
-let api = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyD-zGg0TV5A2QMip5kChktwwCSemed-4fY";
-let main = document.getElementById("main");
-let input = document.getElementById("comman");
-const getData = async () => {
-  let res = await fetch(`${api}&q=${input.value}`);
-  // console.log(res.json());
-  let data = await res.json();
-  // console.log(data.items);
-  console.log(data);
+const display = (data)=>{
+ main.innerHTML = ""
+ data.map((el,index)=>{
+ let name = document.createElement("h2");
+ name.innerText = el.title;
+ let p = document.createElement("h3");
+ p.innerText = el.price;
+ let img = document.createElement("img");
+ img.setAttribute("class", "images")
+ img.src = el.images[0];
+ let div = document.createElement("div");
 
-  dispaly(data.items);
-};
+ div.append(img, name, p);
+ main.append(div);
 
-// getData()
+})
+}
+const filterpr =()=>{
 
-function deley() {
-  setTimeout(getData, 2000);
+if (filprice.value == "lth"){
+     realData.sort((a, b) => {
+       return a.price - b.price;
+     });
+}else if(filprice.value == "htl"){
+     realData.sort((a, b) => {
+       return b.price - a.price;
+     });
 }
 
-const dispaly = (abc) => {
-  main.innerHTML = "";
-  // console.log(abc);
-  abc.map((el) => {
-    //   console.log(el.id.videoId);
-    let iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${el.id.videoId}`;
-    let title = document.createElement("h3");
-    title.innerText = title.value;
-    let div = document.createElement("div");
+display(realData)
+}
 
-    main.append(iframe);
-    main.append(div);
-  });
-};
+input.addEventListener("input", ()=>{
+  let x = event.target.value.toLowerCase()
+
+  const filtered = realData.filter((data)=>{
+  return data.title.toLowerCase().includes(x)
+
+     
+  })
+  display(filtered)
+
+})
